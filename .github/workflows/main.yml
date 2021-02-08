@@ -50,6 +50,7 @@ jobs:
           environment_name: "Dockerreact3-env"
           region: "us-east-1"
           version_label: "react-demo-new-${{ steps.format-time.outputs.replaced }}"
+          use_existing_version_if_available: true 
           deployment_package: deploy.zip
 
       - name: Deployed!
