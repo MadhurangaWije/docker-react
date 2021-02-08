@@ -46,8 +46,8 @@ jobs:
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_REACT_KEY_ID}}
           aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_REACT_KEY}}
-          application_name: "docker-react3"
-          environment_name: "Dockerreact3-env"
+          application_name: "docker-react"
+          environment_name: "Dockerreact-env"
           region: "us-east-1"
           version_label: "react-demo-new-${{ steps.format-time.outputs.replaced }}"
           use_existing_version_if_available: true 
