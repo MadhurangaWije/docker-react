@@ -35,11 +35,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: docker build
-        uses: actions/docker/cli@master
-        with:
-          args: build -t kanishkaw/docker-react -f Dockerfile.dev .
+        run: build -t kanishkaw/docker-react -f Dockerfile.dev .
       - name: test runs
-        uses: actions/docker/cli@master
-        with:
-          args: run kanishkaw/docker-react npm run test -- --coverage
+        run: docker run kanishkaw/docker-react npm run test -- --coverage
       
