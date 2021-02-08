@@ -35,7 +35,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: docker build
-        run: build -t kanishkaw/docker-react -f Dockerfile.dev .
+        run: docker build -t kanishkaw/docker-react -f Dockerfile.dev .
       - name: test runs
         run: docker run kanishkaw/docker-react npm run test -- --coverage
       
