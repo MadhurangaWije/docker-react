@@ -38,4 +38,20 @@ jobs:
         run: docker build -t kanishkaw/docker-react -f Dockerfile.dev .
       - name: test runs
         run: docker run kanishkaw/docker-react npm run test -- --coverage --watchAll=false
-      
+      # Zip Dockerfile for upload
+      - name: Generate Deployment Package
+        run: zip -r deploy.zip * -x "**node_modules**"
+      - name: Beanstalk Deploy for app
+        uses: einaregilsson/beanstalk-deploy@v10
+        with:
+          aws_access_key: ${{secrets.AWS_ACCESS_REACT_KEY_ID}}
+          aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_REACT_KEY}}
+          application_name: "docker-react"
+          environment_name: "Dockerreact-env"
+          region: "us-east-1"
+          version_label: "react-demo-new-${{ steps.format-time.outputs.replaced }}"
+          use_existing_version_if_available: true 
+          deployment_package: deploy.zip
+
+      - name: Deployed!
+        run: echo App deployed to ELB
