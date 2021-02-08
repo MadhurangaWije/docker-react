@@ -22,5 +22,6 @@ deploy:
   on: 
     branch: master
   access_key_id: $AWS_ACCESS_KEY
+  label: "Sample Application"
   secret_access_key: $AWS_SECRET_KEY
   skip_cleanup: true
