@@ -10,6 +10,7 @@ before_install:
 
 script:
   - docker run kanishkaw/docker-react npm run test -- --coverage --watchAll=false
+  - docker build -t kanishkaw/docker-react .
 
 deploy:
   provider: elasticbeanstalk
