@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello React World2</p>
+        <p>Hello React World With CI/CD</p>
       </header>
     </div>
   );
